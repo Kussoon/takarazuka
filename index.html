@@ -46,9 +46,12 @@
         margin: 0;
       }
       .character {
-        font-size: 66px;
-        line-height: 1.3;
-        margin: 8px auto 12px;
+        display: block;
+        width: 112px;
+        max-width: 28vw;
+        height: auto;
+        margin: 12px auto 4px;
+        border-radius: 18px;
       }
       .menu {
         display: grid;
@@ -84,7 +87,7 @@
         gap: 10px;
         min-height: 75px;
         padding: 10px 12px;
-        border: 1px solid #c7dfd8;
+        border: 2px solid #c7dfd8;
         border-radius: 16px;
         background: #fff;
         color: #31535a;
@@ -189,7 +192,7 @@
       <header>
         <h1>宝塚市 町名記憶ゲーム</h1>
         <p class="tagline">宝塚市の町を、地図で楽しく覚えよう！</p>
-        <div class="character" aria-label="案内役のフクロウ">🦉</div>
+        <img class="character" src="images/kisaragi-happy.png" alt="笑顔の如月先生" />
       </header>
       <nav class="menu" aria-label="学習メニュー">
         <section class="section">
@@ -284,7 +287,7 @@
       <p class="note">
         宝塚市には、概ね小学校区を単位とする20のまちづくり協議会があります。町名図では丁目をまとめて表示します。
       </p>
-      <footer>Ver. 0.6.3<br />© KUSSOON 2026 All Rights Reserved.</footer>
+      <footer>Ver. 0.6.4<br />© KUSSOON 2026 All Rights Reserved.</footer>
     </main>
   </body>
 <script src="/takarazuka/site-identity.js"></script></html>
