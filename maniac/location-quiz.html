@@ -148,7 +148,7 @@ function answer(item){
   if(item.name===target){
     locked=true;
     byId('revealBtn').disabled=true;
-    item.layer.setStyle(correctStyle);
+    items.filter(x=>x.name===target).forEach(x=>x.layer.setStyle(correctStyle));
     byId('feedback').className='feedback good';
     byId('feedback').textContent=`正解！ ここが「${target}」です。`;
     showNextButton();
@@ -168,21 +168,22 @@ function revealAnswer(){
   locked=true;
   byId('revealBtn').disabled=true;
   const target=order[index];
-  const item=items.find(x=>x.name===target);
+  const targetItems=items.filter(x=>x.name===target);
   revealed++;
   missed.add(target);
   score=Math.max(0,score-1);
   byId('scoreNow').textContent=score;
-  if(item){
-    item.layer.setStyle(correctStyle);
-    map.setView(item.layer.getBounds().getCenter(),ANSWER_ZOOM,{animate:true});
+  if(targetItems.length){
+    const targetLayer=L.featureGroup(targetItems.map(x=>x.layer));
+    targetItems.forEach(x=>x.layer.setStyle(correctStyle));
+    map.fitBounds(targetLayer.getBounds(),{padding:[24,24],maxZoom:ANSWER_ZOOM,animate:true});
   }
   byId('feedback').className='feedback good';
   byId('feedback').textContent=`答えは「${target}」です。`;
   showNextButton();
 }
 function start(names){
-  order=shuffle(names&&names.length?names:items.map(x=>x.name));
+  order=shuffle(names&&names.length?names:[...new Set(items.map(x=>x.name))]);
   index=0;
   score=order.length;
   wrong=0;
