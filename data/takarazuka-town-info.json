@@ -1,0 +1,897 @@
+{
+  "towns": [
+    {
+      "name": "すみれガ丘",
+      "reading": "すみれがおか",
+      "communities": [
+        "すみれガ丘"
+      ]
+    },
+    {
+      "name": "ふじガ丘",
+      "reading": "ふじがおか",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "ゆずり葉台",
+      "reading": "ゆずりはだい",
+      "communities": [
+        "逆瀬台"
+      ]
+    },
+    {
+      "name": "三笠町",
+      "reading": "みかさちょう",
+      "communities": [
+        "小浜"
+      ]
+    },
+    {
+      "name": "上佐曽利",
+      "reading": "かみさそり",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "下佐曽利",
+      "reading": "しもさそり",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "中山五月台",
+      "reading": "なかやまさつきだい",
+      "communities": [
+        "中山台"
+      ]
+    },
+    {
+      "name": "中山台",
+      "reading": "なかやまだい",
+      "communities": [
+        "中山台"
+      ]
+    },
+    {
+      "name": "中山寺",
+      "reading": "なかやまでら",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "中山桜台",
+      "reading": "なかやまさくらだい",
+      "communities": [
+        "中山台"
+      ]
+    },
+    {
+      "name": "中山荘園",
+      "reading": "なかやまそうえん",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "中州",
+      "reading": "なかす",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "中筋",
+      "reading": "なかすじ",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "中筋字平井",
+      "reading": "なかすじあざひらい",
+      "communities": [
+        "中山台"
+      ]
+    },
+    {
+      "name": "中筋山手",
+      "reading": "なかすじやまて",
+      "communities": [
+        "長尾",
+        "中山台"
+      ]
+    },
+    {
+      "name": "中野町",
+      "reading": "なかのちょう",
+      "communities": [
+        "良元"
+      ]
+    },
+    {
+      "name": "亀井町",
+      "reading": "かめいちょう",
+      "communities": [
+        "末成"
+      ]
+    },
+    {
+      "name": "仁川うぐいす台",
+      "reading": "にがわうぐいすだい",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川北",
+      "reading": "にがわきた",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川台",
+      "reading": "にがわだい",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川団地",
+      "reading": "にがわだんち",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川宮西町",
+      "reading": "にがわみやにしちょう",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川旭ガ丘",
+      "reading": "にがわあさひがおか",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川月見ガ丘",
+      "reading": "にがわつきみがおか",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川清風台",
+      "reading": "にがわせいふうだい",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川高丸",
+      "reading": "にがわたかまる",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "仁川高台",
+      "reading": "にがわたかだい",
+      "communities": [
+        "仁川"
+      ]
+    },
+    {
+      "name": "今里町",
+      "reading": "いまざとちょう",
+      "communities": [
+        "小浜"
+      ]
+    },
+    {
+      "name": "伊孑志",
+      "reading": "いそし",
+      "communities": [
+        "宝塚第一",
+        "末広"
+      ]
+    },
+    {
+      "name": "光ガ丘",
+      "reading": "ひかりがおか",
+      "communities": [
+        "逆瀬台"
+      ]
+    },
+    {
+      "name": "光明町",
+      "reading": "こうみょうちょう",
+      "communities": [
+        "光明"
+      ]
+    },
+    {
+      "name": "切畑",
+      "reading": "きりはた",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "千種",
+      "reading": "ちぐさ",
+      "communities": [
+        "西山"
+      ]
+    },
+    {
+      "name": "南ひばりガ丘",
+      "reading": "みなみひばりがおか",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "南口",
+      "reading": "みなみぐち",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "口谷東",
+      "reading": "くちたにひがし",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "口谷西",
+      "reading": "くちたににし",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "向月町",
+      "reading": "こうげつちょう",
+      "communities": [
+        "小浜"
+      ]
+    },
+    {
+      "name": "塔の町",
+      "reading": "とうのちょう",
+      "communities": [
+        "良元"
+      ]
+    },
+    {
+      "name": "境野",
+      "reading": "さかいの",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "売布",
+      "reading": "めふ",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "売布きよしガ丘",
+      "reading": "めふきよしがおか",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "売布ガ丘",
+      "reading": "めふがおか",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "売布山手町",
+      "reading": "めふやまてちょう",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "売布東の町",
+      "reading": "めふひがしのちょう",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "売布自由ガ丘",
+      "reading": "めふじゆうがおか",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "大原野",
+      "reading": "おおはらの",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "大吹町",
+      "reading": "おおぶきちょう",
+      "communities": [
+        "高司"
+      ]
+    },
+    {
+      "name": "大成町",
+      "reading": "たいせいちょう",
+      "communities": [
+        "良元",
+        "仁川"
+      ]
+    },
+    {
+      "name": "安倉中",
+      "reading": "あくらなか",
+      "communities": [
+        "安倉"
+      ]
+    },
+    {
+      "name": "安倉北",
+      "reading": "あくらきた",
+      "communities": [
+        "安倉",
+        "小浜"
+      ]
+    },
+    {
+      "name": "安倉南",
+      "reading": "あくらみなみ",
+      "communities": [
+        "安倉"
+      ]
+    },
+    {
+      "name": "安倉西",
+      "reading": "あくらにし",
+      "communities": [
+        "安倉",
+        "小浜"
+      ]
+    },
+    {
+      "name": "宝松苑",
+      "reading": "ほうしょうえん",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "宝梅",
+      "reading": "ほうばい",
+      "communities": [
+        "西山",
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "宮の町",
+      "reading": "みやのちょう",
+      "communities": [
+        "宝小"
+      ]
+    },
+    {
+      "name": "寿楽荘",
+      "reading": "じゅらくそう",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "寿町",
+      "reading": "ことぶきちょう",
+      "communities": [
+        "小浜"
+      ]
+    },
+    {
+      "name": "小林",
+      "reading": "おばやし",
+      "communities": [
+        "逆瀬台",
+        "良元"
+      ]
+    },
+    {
+      "name": "小浜",
+      "reading": "こはま",
+      "communities": [
+        "美座",
+        "小浜"
+      ]
+    },
+    {
+      "name": "山手台東",
+      "reading": "やまてだいひがし",
+      "communities": [
+        "山本山手"
+      ]
+    },
+    {
+      "name": "山手台西",
+      "reading": "やまてだいにし",
+      "communities": [
+        "山本山手"
+      ]
+    },
+    {
+      "name": "山本中",
+      "reading": "やまもとなか",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "山本丸橋",
+      "reading": "やまもとまるはし",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "山本南",
+      "reading": "やまもとみなみ",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "山本台",
+      "reading": "やまもとだい",
+      "communities": [
+        "山本山手"
+      ]
+    },
+    {
+      "name": "山本東",
+      "reading": "やまもとひがし",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "山本西",
+      "reading": "やまもとにし",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "山本野里",
+      "reading": "やまもとのざと",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "川面",
+      "reading": "かわも",
+      "communities": [
+        "宝小"
+      ]
+    },
+    {
+      "name": "川面字一後谷",
+      "reading": "かわもあざいちごだに",
+      "communities": [
+        "宝小"
+      ]
+    },
+    {
+      "name": "川面字長尾山",
+      "reading": "かわもあざながおやま",
+      "communities": [
+        "宝小"
+      ]
+    },
+    {
+      "name": "平井",
+      "reading": "ひらい",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "平井山荘",
+      "reading": "ひらいさんそう",
+      "communities": [
+        "山本山手"
+      ]
+    },
+    {
+      "name": "弥生町",
+      "reading": "やよいちょう",
+      "communities": [
+        "安倉"
+      ]
+    },
+    {
+      "name": "御所の前町",
+      "reading": "ごしょのまえちょう",
+      "communities": [
+        "末成"
+      ]
+    },
+    {
+      "name": "御殿山",
+      "reading": "ごてんやま",
+      "communities": [
+        "宝小",
+        "すみれガ丘"
+      ]
+    },
+    {
+      "name": "新明和町",
+      "reading": "しんめいわちょう",
+      "communities": [
+        "高司"
+      ]
+    },
+    {
+      "name": "旭町",
+      "reading": "あさひまち",
+      "communities": [
+        "美座",
+        "宝小"
+      ]
+    },
+    {
+      "name": "星の荘",
+      "reading": "ほしのそう",
+      "communities": [
+        "小浜"
+      ]
+    },
+    {
+      "name": "月見山",
+      "reading": "つきみやま",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "末広町",
+      "reading": "すえひろちょう",
+      "communities": [
+        "末広"
+      ]
+    },
+    {
+      "name": "末成町",
+      "reading": "すえなりちょう",
+      "communities": [
+        "末成"
+      ]
+    },
+    {
+      "name": "東洋町",
+      "reading": "とうようちょう",
+      "communities": [
+        "末成",
+        "末広"
+      ]
+    },
+    {
+      "name": "栄町",
+      "reading": "さかえまち",
+      "communities": [
+        "宝小"
+      ]
+    },
+    {
+      "name": "桜ガ丘",
+      "reading": "さくらがおか",
+      "communities": [
+        "宝小"
+      ]
+    },
+    {
+      "name": "梅野町",
+      "reading": "うめのちょう",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "武庫山",
+      "reading": "むこやま",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "武庫川町",
+      "reading": "むこがわちょう",
+      "communities": [
+        "美座",
+        "宝小"
+      ]
+    },
+    {
+      "name": "泉ガ丘",
+      "reading": "いずみがおか",
+      "communities": [
+        "売布"
+      ]
+    },
+    {
+      "name": "泉町",
+      "reading": "いずみちょう",
+      "communities": [
+        "小浜"
+      ]
+    },
+    {
+      "name": "波豆",
+      "reading": "はず",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "清荒神",
+      "reading": "きよしこうじん",
+      "communities": [
+        "売布",
+        "宝小"
+      ]
+    },
+    {
+      "name": "湯本町",
+      "reading": "ゆもとちょう",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "玉瀬",
+      "reading": "たませ",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "社町",
+      "reading": "やしろちょう",
+      "communities": [
+        "西山",
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "福井町",
+      "reading": "ふくいちょう",
+      "communities": [
+        "光明"
+      ]
+    },
+    {
+      "name": "米谷",
+      "reading": "まいたに",
+      "communities": [
+        "売布",
+        "小浜"
+      ]
+    },
+    {
+      "name": "紅葉ガ丘",
+      "reading": "もみじがおか",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "美幸町",
+      "reading": "みゆきちょう",
+      "communities": [
+        "高司"
+      ]
+    },
+    {
+      "name": "美座",
+      "reading": "みざ",
+      "communities": [
+        "美座"
+      ]
+    },
+    {
+      "name": "芝辻新田",
+      "reading": "しばつじしんでん",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "花屋敷つつじガ丘",
+      "reading": "はなやしきつつじがおか",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "花屋敷松ガ丘",
+      "reading": "はなやしきまつがおか",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "花屋敷緑ガ丘",
+      "reading": "はなやしきみどりがおか",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "花屋敷荘園",
+      "reading": "はなやしきそうえん",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "蔵人",
+      "reading": "くらんど",
+      "communities": [
+        "西山",
+        "逆瀬台"
+      ]
+    },
+    {
+      "name": "谷口町",
+      "reading": "たにぐちちょう",
+      "communities": [
+        "良元"
+      ]
+    },
+    {
+      "name": "逆瀬台",
+      "reading": "さかせだい",
+      "communities": [
+        "逆瀬台"
+      ]
+    },
+    {
+      "name": "逆瀬川",
+      "reading": "さかせがわ",
+      "communities": [
+        "末広",
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "野上",
+      "reading": "のがみ",
+      "communities": [
+        "西山",
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "金井町",
+      "reading": "かないちょう",
+      "communities": [
+        "安倉"
+      ]
+    },
+    {
+      "name": "長寿ガ丘",
+      "reading": "ちょうじゅがおか",
+      "communities": [
+        "宝塚第一"
+      ]
+    },
+    {
+      "name": "長尾台",
+      "reading": "ながおだい",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "長尾町",
+      "reading": "ながおちょう",
+      "communities": [
+        "長尾"
+      ]
+    },
+    {
+      "name": "長谷",
+      "reading": "ながたに",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "雲雀丘",
+      "reading": "ひばりがおか",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "雲雀丘山手",
+      "reading": "ひばりがおかやまて",
+      "communities": [
+        "長尾台"
+      ]
+    },
+    {
+      "name": "青葉台",
+      "reading": "あおばだい",
+      "communities": [
+        "逆瀬台"
+      ]
+    },
+    {
+      "name": "香合新田",
+      "reading": "こうばこしんでん",
+      "communities": [
+        "西谷"
+      ]
+    },
+    {
+      "name": "駒の町",
+      "reading": "こまのちょう",
+      "communities": [
+        "高司"
+      ]
+    },
+    {
+      "name": "高司",
+      "reading": "たかつかさ",
+      "communities": [
+        "高司"
+      ]
+    },
+    {
+      "name": "高松町",
+      "reading": "たかまつちょう",
+      "communities": [
+        "末成"
+      ]
+    },
+    {
+      "name": "鶴の荘",
+      "reading": "つるのそう",
+      "communities": [
+        "美座"
+      ]
+    },
+    {
+      "name": "鹿塩",
+      "reading": "かしお",
+      "communities": [
+        "仁川"
+      ]
+    }
+  ]
+}
