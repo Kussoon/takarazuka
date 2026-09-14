@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>宝塚市 交通入り全域町名地図｜宝塚市 町名記憶ゲーム</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f0f8f7;color:#284049;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",Meiryo,sans-serif}body{padding:max(12px,env(safe-area-inset-top)) 10px calc(22px + env(safe-area-inset-bottom))}main{max-width:780px;margin:auto}.back{display:inline-flex;background:#fff;border-radius:999px;padding:10px 15px;min-height:44px;color:#145a60;font-weight:800;text-decoration:none;box-shadow:0 2px 10px #1248501c}h1{text-align:center;font-size:clamp(1.35rem,5vw,2rem);margin:16px 0 2px;color:#12585c}.subtitle{text-align:center;margin:3px 0 14px;font-weight:800;color:#307478}.message{display:flex;align-items:center;gap:12px;padding:10px 13px;border:2px solid #9bc9c4;border-radius:16px;background:#fff;margin:10px 0;min-height:64px;font-weight:700}.message span:first-child{font-size:1.75rem;flex:none}.mapbox{background:#fff;border:3px solid #fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 18px #12485033}.controls{display:flex;gap:8px;padding:8px;background:#edf6f3;flex-wrap:wrap}button{font:inherit;font-weight:800;min-height:42px;border:1px solid #81aba9;border-radius:9px;background:#fff;color:#165962;padding:7px 13px}.viewport{height:min(65vh,680px);min-height:420px}#map{width:100%;height:100%;background:#eef4f1}.town-label{border:0!important;background:transparent!important;color:#193f50!important;font-size:6px!important;font-weight:900!important;text-shadow:-1px -1px #fff,1px 1px #fff!important;box-shadow:none!important;padding:0!important;white-space:nowrap!important;pointer-events:none!important}.town-label:before{display:none!important}.legend{display:flex;flex-wrap:wrap;gap:7px 13px;padding:10px 13px;background:#f8fcfb;color:#466067;font-size:.78rem;font-weight:800}.legend span{display:flex;align-items:center;gap:5px}.line{width:22px;border-top:3px solid #7b1e3a}.road{border-color:#d58c16}.express{border-color:#7546a9;border-top-width:4px}.note,.credit{font-size:.78rem;line-height:1.65;color:#61737a;margin:12px 3px}.credit{border-top:1px solid #d1e0dd;margin-top:20px;padding-top:12px}.footer{text-align:center;color:#66808e;font-size:11px;margin-top:14px}
+  </style>
+</head>
+<body>
+<main>
+  <a class="back" href="index.html">← 宝塚市トップへ</a>
+  <h1>宝塚市 交通入り全域町名地図</h1>
+  <p class="subtitle">🛣️ 町名と主な鉄道・道路</p>
+  <div class="message"><span aria-hidden="true">🗺️</span><span>宝塚市全域の町名と、主な鉄道・道路を表示しています。</span></div>
+  <section class="mapbox"><div class="controls"><button id="plus" type="button">＋</button><button id="minus" type="button">－</button><button id="reset" type="button">全体表示</button></div><div class="viewport"><div id="map" aria-label="宝塚市の町名と主な鉄道・道路の地図"></div></div><div class="legend"><span><i class="line"></i>鉄道</span><span><i class="line road"></i>国道176号</span><span><i class="line express"></i>高速道路</span></div></section>
+  <p class="note">文字が重なる場所は、地図を拡大して確認してください。</p>
+  <p class="credit">地図境界データ：『国勢調査町丁・字等別境界データセット』（CODH作成）「令和2年国勢調査町丁・字等別境界データ」（e-Stat）を加工。CC BY 4.0／doi:10.20676/00000450<br>鉄道データ：国土数値情報「鉄道データ」（2025年）を参照。<br>道路データ：<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap contributors</a>（ODbL 1.0）を抽出・加工。</p>
+  <footer class="footer">© KUSSOON 2026 All Rights Reserved.</footer>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+const map=L.map('map',{attributionControl:false,zoomControl:false,scrollWheelZoom:true,zoomSnap:.1});
+let townLayer,initialBounds;
+const base=n=>n.replace(/[一二三四五六七八九十]+丁目$/,'');
+Promise.all([fetch('data/takarazuka-towns.topojson').then(r=>r.json()),fetch('data/takarazuka-transport.geojson').then(r=>r.json())]).then(([topology,transport])=>{
+  const groups=new Map();
+  topology.objects.town.geometries.forEach(g=>{const n=base(g.properties.S_NAME);if(!groups.has(n))groups.set(n,[]);groups.get(n).push(g)});
+  const towns=[...groups].map(([name,geometries])=>{const f=topojson.merge(topology,geometries);f.properties={name};return f});
+  townLayer=L.geoJSON({type:'FeatureCollection',features:towns},{style:{color:'#fff',weight:1.1,fillColor:'#75b8dc',fillOpacity:.78},onEachFeature:(f,l)=>l.bindTooltip(f.properties.name,{permanent:true,direction:'center',className:'town-label',interactive:false})}).addTo(map);
+  L.geoJSON(transport.features.filter(f=>f.properties.kind==='expressway'),{style:{color:'#fff',weight:6,opacity:.95}}).addTo(map);
+  L.geoJSON(transport.features.filter(f=>f.properties.kind==='expressway'),{style:{color:'#7546a9',weight:3.1,opacity:.98},onEachFeature:(f,l)=>l.bindTooltip(f.properties.name)}).addTo(map);
+  L.geoJSON(transport.features.filter(f=>f.properties.kind==='road'),{style:{color:'#fff',weight:5,opacity:.95}}).addTo(map);
+  L.geoJSON(transport.features.filter(f=>f.properties.kind==='road'),{style:{color:'#d58c16',weight:2.4,opacity:.98},onEachFeature:(f,l)=>l.bindTooltip(f.properties.name)}).addTo(map);
+  const railColors={'JR福知山線':'#ad284e','阪急宝塚線':'#213a8f','阪急宝塚本線':'#213a8f','阪急今津線':'#3e8759'};
+  L.geoJSON(transport.features.filter(f=>f.properties.kind==='rail'),{style:f=>({color:'#fff',weight:4.6,opacity:.95})}).addTo(map);
+  L.geoJSON(transport.features.filter(f=>f.properties.kind==='rail'),{style:f=>({color:railColors[f.properties.name]||'#7b1e3a',weight:2.1,opacity:.98}),onEachFeature:(f,l)=>l.bindTooltip(f.properties.name)}).addTo(map);
+  initialBounds=townLayer.getBounds();map.fitBounds(initialBounds,{padding:[12,12],animate:false});setTimeout(()=>map.invalidateSize(),0);
+}).catch(()=>document.querySelector('.message span:last-child').textContent='地図データを読み込めませんでした。');
+document.querySelector('#plus').onclick=()=>map.zoomIn();document.querySelector('#minus').onclick=()=>map.zoomOut();document.querySelector('#reset').onclick=()=>initialBounds&&map.fitBounds(initialBounds,{padding:[12,12],animate:false});
+</script><script src="/takarazuka/site-identity.js"></script>
+</body></html>
