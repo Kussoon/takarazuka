@@ -38,6 +38,8 @@
     border-radius: 18px;
     padding: 10px;
   }
+  .fullmap-link { display:block; margin:12px 0; padding:15px; border-radius:15px; background:#6650a3; color:#fff; text-decoration:none; text-align:center; font-size:18px; font-weight:950; box-shadow:0 4px 12px #4e3a7a33; }
+  .fullmap-link small { display:block; margin-top:4px; font-size:12px; opacity:.9; }
   .map {
     height: 62vh;
     min-height: 390px;
@@ -106,6 +108,7 @@
   <p class="tag">マニアックモード</p>
   <h1>丁目のある町を学ぶ</h1>
   <p>町を選ぶと、その町の丁目だけを表示します。</p>
+  <a class="fullmap-link" href="all-area-labeled.html">🗺️ 丁目入り全域図を見る<small>宝塚市全域を、丁目を分けた町丁名で確認</small></a>
   <div class="card">
     <div class="tools">
       <button onclick="showAll()">全体表示</button
@@ -1774,7 +1777,7 @@
     </div>
   </div>
   <section class="list" id="list"></section>
-  <footer>Ver. 0.4.7<br />© KUSSOON 2026 All Rights Reserved.</footer>
+  <footer>Ver. 0.4.9<br />© KUSSOON 2026 All Rights Reserved.</footer>
 </main>
 <script>
   const bases = [
