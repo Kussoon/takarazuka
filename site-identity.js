@@ -22,26 +22,41 @@
   `;
   document.head.append(style);
 
-  const badge = document.createElement('a');
+  const badge = document.querySelector('.city-site-identity') || document.createElement('a');
   badge.className = 'city-site-identity';
   badge.href = '/takarazuka/';
   badge.setAttribute('aria-label', '宝塚市トップへ');
-  badge.textContent = '宝塚市 町名記憶ゲーム';
+  badge.textContent = '宝塚市トップへ';
   document.body.append(badge);
 
-  const commonNav = document.createElement('nav');
-  commonNav.className = 'common-site-nav';
-  commonNav.setAttribute('aria-label', 'サイト共通情報');
-  commonNav.innerHTML = `
-    <a href="/about/">このサイトについて</a>
-    <a href="/privacy/">プライバシーポリシー</a>
-    <a href="/sources/">データ出典</a>
-    <a href="/terms/">利用上の注意</a>
-  `;
-  const host = document.querySelector('main') || document.body;
-  const footer = host.querySelector('footer');
-  if (footer) footer.before(commonNav);
-  else host.append(commonNav);
+  // Keep an existing complete site-information navigation instead of adding a second one.
+  const hasGlobalLinks = root => [...root.querySelectorAll('nav')].some(nav => {
+    const paths = [...nav.querySelectorAll('a[href]')].map(anchor => {
+      try {
+        const url = new URL(anchor.getAttribute('href'), location.href);
+        return url.origin === location.origin ? url.pathname.replace(/\/?$/, '/') : '';
+      } catch (_) {
+        return '';
+      }
+    });
+    return ['/about/', '/privacy/', '/sources/', '/terms/'].every(path => paths.includes(path));
+  });
+
+  if (!hasGlobalLinks(document)) {
+    const commonNav = document.createElement('nav');
+    commonNav.className = 'common-site-nav';
+    commonNav.setAttribute('aria-label', 'サイト共通情報');
+    commonNav.innerHTML = `
+      <a href="/about/">このサイトについて</a>
+      <a href="/privacy/">プライバシーポリシー</a>
+      <a href="/sources/">データ出典</a>
+      <a href="/terms/">利用上の注意</a>
+    `;
+    const host = document.querySelector('main') || document.body;
+    const footer = host.querySelector('footer');
+    if (footer) footer.before(commonNav);
+    else host.append(commonNav);
+  }
 
   document.querySelectorAll('a,button').forEach(element => {
     const text = element.textContent.trim();
