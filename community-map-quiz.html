@@ -44,6 +44,8 @@
     .feedback:empty{display:none}.feedback.good{background:#dff7e9;color:#08743f}.feedback.bad{background:#ffe5e5;color:#a52121}
     .map-wrap{position:relative;border:3px solid #fff;border-radius:18px;overflow:hidden;box-shadow:0 4px 16px #155e6233;background:#e1ece9}
     #map{height:min(68vh,620px);min-height:480px;background:#e1ece9}
+    .wheel-hint{display:none;position:absolute;z-index:500;right:8px;top:55px;max-width:70%;padding:4px 7px;border-radius:7px;background:#fffffff0;color:#345e5e;font-size:11px;line-height:1.35;box-shadow:0 1px 4px #0002;pointer-events:none}
+    @media (hover:hover) and (pointer:fine){.wheel-hint{display:block}}
     .tools{position:absolute;z-index:500;right:8px;top:8px}
     .tools button{border:0;border-radius:10px;background:#fff;color:var(--deep);font-weight:900;padding:9px 11px;box-shadow:0 2px 8px #155e6233}
     .result{padding:17px;margin:11px 0;text-align:center}.score{font-size:clamp(48px,15vw,72px);line-height:1;font-weight:950;color:var(--red);margin:12px}.result h2{color:var(--deep)}
@@ -87,6 +89,7 @@
     <div class="map-wrap">
       <div id="map" aria-label="宝塚市まちづくり協議会場所当て地図"></div>
       <div class="tools"><button type="button" id="resetView">全体表示</button></div>
+      <div class="wheel-hint" id="wheelHint" aria-live="polite">地図をクリックするとホイールで拡大・縮小できます</div>
     </div>
   </section>
 
@@ -158,6 +161,14 @@
   const bounds=L.latLngBounds([0,0],[1353.3,1000]);
   const colors=['#64afa5','#78b9a2','#4e9f97','#7ebdb4','#5aa98c'];
   let gameMap,gameSvg,gameAreas=[];
+  let lastPointerType='mouse',lastAnswerId=null,lastAnswerAt=-Infinity;
+  document.addEventListener('pointerdown',event=>{lastPointerType=event.pointerType||'mouse'},true);
+  document.addEventListener('click',event=>{
+    if((event.pointerType||lastPointerType)!=='mouse'||!gameMap)return;
+    const active=gameMap.getContainer().contains(event.target);
+    if(active)gameMap.scrollWheelZoom.enable();else gameMap.scrollWheelZoom.disable();
+    document.getElementById('wheelHint').textContent=active?'ホイールで拡大・縮小できます':'地図をクリックするとホイールで拡大・縮小できます';
+  },true);
   let order=[],index=0,target='',totalWrong=0,locked=false,wrongTargets=new Set();
 
   function cloneSvg(){
@@ -219,16 +230,16 @@
 
   function initGameMap(){
     if(gameMap)return;
-    gameMap=L.map('map',{crs:L.CRS.Simple,zoomControl:true,attributionControl:false,dragging:true,touchZoom:true,scrollWheelZoom:true,doubleClickZoom:true,boxZoom:false,keyboard:true,zoomSnap:.1,minZoom:-2,maxZoom:5});
+    gameMap=L.map('map',{crs:L.CRS.Simple,zoomControl:true,attributionControl:false,dragging:true,touchZoom:true,scrollWheelZoom:false,doubleClickZoom:false,boxZoom:false,keyboard:true,zoomSnap:.1,minZoom:-2,maxZoom:5});
     gameSvg=cloneSvg();
     gameAreas=[...gameSvg.querySelectorAll('.area')];
-    gameAreas.forEach(path=>{paintBase(path);path.addEventListener('click',event=>{event.stopPropagation();handleAnswer(path.dataset.id,path)})});
+    gameAreas.forEach(path=>{paintBase(path);path.addEventListener('click',event=>{event.stopPropagation();handleAnswer(path.dataset.id,path,event)})});
     L.svgOverlay(gameSvg,bounds,{interactive:true}).addTo(gameMap);
     fitMap(gameMap);
   }
   function clearMarks(){gameAreas.forEach(paintBase)}
   function loadQuestion(){
-    clearMarks();target=order[index];locked=false;
+    clearMarks();lastAnswerId=null;lastAnswerAt=-Infinity;target=order[index];locked=false;
     prompt.textContent=byId.get(target).name;counter.textContent=`${index+1} / ${order.length}`;wrongNow.textContent=totalWrong;
     feedback.className='feedback';feedback.textContent='';message.textContent='地図をタップしてください。';
     setTimeout(()=>{gameMap.invalidateSize();fitMap(gameMap)},0);
@@ -237,8 +248,10 @@
     initGameMap();const roundItems=Array.isArray(items)&&items.length?items:communities.map(item=>item.id);
     order=shuffle(roundItems);index=0;totalWrong=0;wrongTargets=new Set();show('gameScreen');loadQuestion();
   }
-  function handleAnswer(id,path){
+  function handleAnswer(id,path,event){
     if(!target||locked)return;
+    if(id===lastAnswerId&&(event.detail>1||performance.now()-lastAnswerAt<400))return;
+    lastAnswerId=id;lastAnswerAt=performance.now();
     if(id===target){
       locked=true;path.classList.remove('wrong');path.classList.add('correct');
       feedback.className='feedback good';feedback.textContent='正解です！';message.textContent=`正解です！ 緑色の区域が「${byId.get(target).short}」です。`;
